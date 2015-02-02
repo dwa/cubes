@@ -1,5 +1,5 @@
-# -*- encoding: utf-8 -*-
-"""Pytho compatibility utilities"""
+# -*- coding: utf-8 -*-
+"""Python compatibility utilities"""
 
 from __future__ import absolute_import
 
