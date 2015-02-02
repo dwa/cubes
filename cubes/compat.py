@@ -46,14 +46,15 @@ else:
     def to_unicode(s):
         if isinstance(s, unicode):
             return s
-        s = str(s)
-        for enc in ('utf8', 'latin-1'):
-            try:
-                return unicode(s, enc)
-            except UnicodeDecodeError:
-                pass
+        try:
+            s = str(s)
+            for enc in ('utf8', 'latin-1'):
+                try:
+                    return unicode(s, enc)
+                except UnicodeDecodeError:
+                    pass
+        except:
+            return unicode(s)
 
         raise ValueError("Cannot decode for unicode using any of the default "
                          "encodings: %s" % s)
-
-

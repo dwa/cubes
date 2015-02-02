@@ -768,8 +768,9 @@ class QueryBuilder(object):
 
         self.logger.debug("prepare aggregation statement. cell: '%s' "
                           "drilldown: '%s' summary only: %s" %
-                          (",".join([str(cut) for cut in cell.cuts]),
-                          drilldown, summary_only))
+                          (",".join(compat.to_unicode(cut)
+                                    for cut in cell.cuts),
+                           drilldown, summary_only))
 
         # Analyse and Prepare
         # -------------------
